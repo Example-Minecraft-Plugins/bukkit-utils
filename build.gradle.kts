@@ -18,10 +18,10 @@ repositories {
 dependencies {
     compileOnly(fileTree("libs") { include("*.jar") })
     compileOnly("net.md-5:bungeecord-chat:1.8-SNAPSHOT")
-    compileOnly("org.projectlombok:lombok:1.18.28")
+    compileOnly("org.projectlombok:lombok:1.18.32")
     implementation("redis.clients:jedis:5.2.0-beta1")
     implementation("com.google.code.gson:gson:2.10.1")
-    annotationProcessor("org.projectlombok:lombok:1.18.28")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
 }
 
 tasks.withType<JavaCompile> {
