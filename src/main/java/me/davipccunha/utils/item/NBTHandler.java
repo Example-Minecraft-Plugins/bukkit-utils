@@ -4,13 +4,15 @@ import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class NBTHandler {
     public static ItemStack addNBT(ItemStack item, Map<String, String> keyValuesPairs) {
+        if (item == null) return null;
 
         net.minecraft.server.v1_8_R3.ItemStack nmsItem = CraftItemStack.asNMSCopy(item);
+        if (nmsItem == null) return null;
+
         NBTTagCompound compound = nmsItem.hasTag() ? nmsItem.getTag() : new NBTTagCompound();
 
         for (String key : keyValuesPairs.keySet()) {
@@ -24,6 +26,8 @@ public class NBTHandler {
     }
 
     public static String getNBT(ItemStack item, String key) {
+        if (item == null) return null;
+
         net.minecraft.server.v1_8_R3.ItemStack nmsItem = CraftItemStack.asNMSCopy(item);
         NBTTagCompound compound = nmsItem.hasTag() ? nmsItem.getTag() : new NBTTagCompound();
 

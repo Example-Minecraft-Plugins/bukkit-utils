@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class RedisCache<T> {
-    private final RedisConnector redisConnector = new RedisConnector("localhost", 6379, "davi123");
+    private final RedisConnector redisConnector = new RedisConnector();
     private final String redisKey;
     private final Class<T> clazz;
 

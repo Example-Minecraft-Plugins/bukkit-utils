@@ -1,5 +1,6 @@
 package me.davipccunha.utils.cache;
 
+import me.davipccunha.utils.BukkitUtilsPlugin;
 import org.bukkit.configuration.file.FileConfiguration;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -8,9 +9,14 @@ import redis.clients.jedis.JedisPoolConfig;
 public class RedisConnector {
     private final JedisPool pool;
 
-    public RedisConnector(String host, int port, String password) {
+    public RedisConnector() {
         flush();
-        this.pool = new JedisPool(defaultPoolConfig(), host, port, 0, password);
+        final String host = BukkitUtilsPlugin.INSTANCE.getConfig().getString("redis.host");
+        final int port = BukkitUtilsPlugin.INSTANCE.getConfig().getInt("redis.port");
+        final String user = BukkitUtilsPlugin.INSTANCE.getConfig().getString("redis.user");
+        final String password = BukkitUtilsPlugin.INSTANCE.getConfig().getString("redis.password");
+
+        this.pool = new JedisPool(defaultPoolConfig(), host, port, user, password);
     }
 
     public Jedis getJedis() {
