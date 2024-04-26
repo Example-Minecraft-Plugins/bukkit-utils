@@ -24,7 +24,11 @@ public class ItemSerializer {
         }
     }
 
-    public ItemStack[] deserialize(String serialized) {
+    public static String serialize(ItemStack item) {
+        return serialize(new ItemStack[] { item });
+    }
+
+    public static ItemStack[] deserialize(String serialized) {
         try (ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(serialized));
              BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream)) {
 

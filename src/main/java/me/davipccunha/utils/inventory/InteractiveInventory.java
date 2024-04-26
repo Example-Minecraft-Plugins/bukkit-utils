@@ -13,8 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class InteractiveInventory {
-    @Nullable
-    public static ItemStack createToggleItem(boolean config, Map<String, String> nbtTags, String name, String description) {
+    public @Nullable static ItemStack createToggleItem(boolean config, Map<String, String> nbtTags, String name, String description) {
         ItemStack wool = new ItemStack(Material.WOOL, 1, (short) (config ? 5 : 14));
 
         final List<String> lore = Arrays.asList(
@@ -25,8 +24,7 @@ public class InteractiveInventory {
         return createActionItem(wool, nbtTags, name, lore);
     }
 
-    @Nullable
-    public static ItemStack createActionItem(ItemStack item, Map<String, String> nbtTags, String name, List<String> lore) {
+    public @Nullable static ItemStack createActionItem(ItemStack item, Map<String, String> nbtTags, String name, List<String> lore) {
 
         ItemStack actionItem = NBTHandler.addNBT(item, nbtTags);
 
@@ -39,5 +37,17 @@ public class InteractiveInventory {
         actionItem.setItemMeta(actionItemMeta);
 
         return actionItem;
+    }
+
+    public @Nullable static ItemStack createBackItem(String inventory) {
+        ItemStack backItem = new ItemStack(Material.ARROW);
+
+        final Map<String, String> nbtTags = Map.of("action", "back", "inventory", inventory);
+
+        final List<String> lore = List.of(
+                "§7 Clique para voltar ao menu anterior"
+        );
+
+        return createActionItem(backItem, nbtTags,  "§eVoltar", lore);
     }
 }
