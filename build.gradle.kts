@@ -45,4 +45,11 @@ bukkit {
     main = "me.davipccunha.utils.BukkitUtilsPlugin"
     description = "Plugin that contains util classes and functions for other plugins."
     author = "Davi C"
+
+    commands {
+        register("cores") {
+            description = "List all available colors."
+            permission = "utils.command"
+        }
+    }
 }

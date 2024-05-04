@@ -1,9 +1,7 @@
 package me.davipccunha.utils.inventory;
 
 import me.davipccunha.utils.item.NBTHandler;
-import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
