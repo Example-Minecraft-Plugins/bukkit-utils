@@ -1,7 +1,9 @@
 package me.davipccunha.utils.inventory;
 
 import me.davipccunha.utils.item.NBTHandler;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -47,5 +49,23 @@ public class InteractiveInventory {
         );
 
         return createActionItem(backItem, nbtTags,  "§eVoltar", lore);
+    }
+
+    public static Inventory createConfirmationInventory(String title, Map<String, String> confirmNBTTags, Map<String, String> cancelNBTTags) {
+        final Inventory inventory = Bukkit.createInventory(null, 3 * 9, title);
+
+        final ItemStack confirmItem = new ItemStack(Material.WOOL, 1, (short) 5);
+        final ItemStack cancelItem = new ItemStack(Material.WOOL, 1, (short) 14);
+
+        final List<String> confirmLore = List.of("§7 Clique para confirmar");
+        final List<String> cancelLore = List.of("§7 Clique para cancelar");
+
+        final ItemStack confirmActionItem = createActionItem(confirmItem, confirmNBTTags, "§aConfirmar", confirmLore);
+        final ItemStack cancelActionItem = createActionItem(cancelItem, cancelNBTTags, "§cCancelar", cancelLore);
+
+        inventory.setItem(11, confirmActionItem);
+        inventory.setItem(15, cancelActionItem);
+
+        return inventory;
     }
 }
