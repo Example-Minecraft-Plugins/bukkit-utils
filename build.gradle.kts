@@ -48,8 +48,7 @@ bukkit {
 
     commands {
         register("cores") {
-            description = "List all available colors."
-            permission = "utils.command"
+            description = "Lista as cores disponíveis."
         }
     }
 }
