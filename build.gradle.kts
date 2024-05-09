@@ -18,10 +18,14 @@ repositories {
 
 dependencies {
     compileOnly(fileTree("libs") { include("*.jar") })
+
     compileOnly("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
+
     implementation("redis.clients:jedis:5.2.0-beta1")
     implementation("com.google.code.gson:gson:2.10.1")
-    annotationProcessor("org.projectlombok:lombok:1.18.32")
+
+    compileOnly("net.luckperms:api:5.4")
 }
 
 tasks.withType<JavaCompile> {
