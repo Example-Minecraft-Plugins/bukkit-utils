@@ -18,6 +18,7 @@ public class RedisCache<T> {
     private final Class<T> clazz;
 
     public void add(String key, T object) {
+        key = key.toLowerCase();
         try (Jedis jedis = redisConnector.getJedis()) {
             final Pipeline pipeline = jedis.pipelined();
             pipeline.hset(this.redisKey, key, ObjectSerializer.serialize(object));
@@ -29,6 +30,7 @@ public class RedisCache<T> {
     }
 
     public void remove(String key) {
+        key = key.toLowerCase();
         if (this.has(key)) {
             try (Jedis jedis = redisConnector.getJedis()) {
                 final Pipeline pipeline = jedis.pipelined();
@@ -42,6 +44,7 @@ public class RedisCache<T> {
     }
 
     public boolean has(String key) {
+        key = key.toLowerCase();
         try (Jedis jedis = redisConnector.getJedis()) {
             Pipeline pipeline = jedis.pipelined();
             Response<Boolean> response = pipeline.hexists(this.redisKey, key);
@@ -57,6 +60,7 @@ public class RedisCache<T> {
     }
 
     public T get(String key) {
+        key = key.toLowerCase();
         try (Jedis jedis = redisConnector.getJedis()) {
             Pipeline pipeline = jedis.pipelined();
             Response<String> response = pipeline.hget(this.redisKey, key);

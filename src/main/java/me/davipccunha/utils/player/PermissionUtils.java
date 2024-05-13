@@ -4,10 +4,6 @@ import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.PermissionAttachmentInfo;
-
-import java.util.Comparator;
-import java.util.Optional;
 
 public class PermissionUtils {
     public static int extractNumberSuffix(String permission) {
