@@ -14,6 +14,7 @@ public enum ErrorMessages {
     EXECUTOR_NOT_PLAYER("§cApenas jogadores podem executar esse comando."),
     SUBCOMMAND_NOT_FOUND("§cSubcomando não encontrado."),
     INVENTORY_FULL("§cO jogador não tem espaço suficiente no inventário."),
+    PLAYER_NOT_ONLINE("§cEsse jogador não está online."),
 
     // Economy
     NOT_ENOUGH_COINS("§cVocê não tem coins suficientes.");
