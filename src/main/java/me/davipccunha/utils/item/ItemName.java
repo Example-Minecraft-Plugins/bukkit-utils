@@ -580,7 +580,7 @@ public enum ItemName {
     COOKIE__0("Biscoito"),
     MAP__0("Mapa"),
     SHEARS__0("Tesourão"),
-    MELON__0("Melancia"),
+    MELON__0("Fatia de Melancia"),
     PUMPKIN_SEEDS__0("Sementes de Abóbora"),
     MELON_SEEDS__0("Sementes de Melancia"),
     RAW_BEEF__0("Bife Cru"),

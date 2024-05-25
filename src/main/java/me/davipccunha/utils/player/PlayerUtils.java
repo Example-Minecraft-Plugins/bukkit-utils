@@ -2,15 +2,13 @@ package me.davipccunha.utils.player;
 
 import lombok.NonNull;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 
 public class PlayerUtils {
-    @NonNull
-    public static String correctNameCasing(@NonNull String name) {
-        for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
-            if (player.getName().equalsIgnoreCase(name)) return player.getName();
-        }
+    public static @NonNull String correctNameCasing(@NonNull String name) {
+        final Player player = Bukkit.getPlayer(name);
 
-        return name;
+        if (player == null) return name;
+        return player.getName();
     }
 }
