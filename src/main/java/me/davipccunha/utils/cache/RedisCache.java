@@ -68,8 +68,6 @@ public class RedisCache<T> {
 
             if (response == null || response.get() == null) return null;
 
-            TypeToken<T> typeToken = new TypeToken<T>() {};
-
             return ObjectSerializer.deserialize(response.get(), this.clazz);
         } catch (Exception e) {
             e.printStackTrace();

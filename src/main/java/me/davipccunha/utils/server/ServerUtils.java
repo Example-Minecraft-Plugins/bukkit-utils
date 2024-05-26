@@ -23,4 +23,24 @@ public class ServerUtils {
             if (highlight) player.sendMessage(" ");
         }
     }
+
+    public static void messageEveryoneWithPermission(String message, boolean highlight, String permission) {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (!player.hasPermission(permission)) continue;
+            if (highlight) player.sendMessage(" ");
+            player.sendMessage(message);
+            if (highlight) player.sendMessage(" ");
+        }
+    }
+
+    public static void messageEveryoneWithPermission(List<String> lines, boolean highlight, String permission) {
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (!player.hasPermission(permission)) continue;
+            if (highlight) player.sendMessage(" ");
+            for (String line : lines) {
+                player.sendMessage(line);
+            }
+            if (highlight) player.sendMessage(" ");
+        }
+    }
 }

@@ -33,4 +33,21 @@ public class NBTHandler {
 
         return compound.hasKey(key) ? compound.getString(key) : null;
     }
+
+    public static ItemStack removeNBT(ItemStack item, String key) {
+        if (item == null) return null;
+
+        net.minecraft.server.v1_8_R3.ItemStack nmsItem = CraftItemStack.asNMSCopy(item);
+        if (nmsItem == null) return null;
+
+        if (!nmsItem.hasTag()) return item;
+
+        NBTTagCompound compound = nmsItem.getTag();
+
+        compound.remove(key);
+
+        nmsItem.setTag(compound);
+
+        return CraftItemStack.asBukkitCopy(nmsItem);
+    }
 }
