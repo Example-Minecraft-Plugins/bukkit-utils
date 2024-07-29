@@ -1,18 +1,18 @@
 package me.davipccunha.utils.inventory;
 
+import me.davipccunha.utils.general.GeneralUtils;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class InventoryUtil {
     public static List<Integer> getEmptySlots(Inventory inventory) {
         List<Integer> emptySlots = new ArrayList<>();
 
         for (int i = 0; i < inventory.getSize(); i++) {
-            if (inventory.getItem(i) == null) emptySlots.add(i);
+            if (inventory.getItem(i) == null)
+                emptySlots.add(i);
         }
 
         return emptySlots;
